@@ -1,2 +1,4 @@
 venv/*
-.idea/*
+js/node_modules/
+.idea/
+*.pyc
