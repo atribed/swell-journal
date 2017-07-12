@@ -102,6 +102,8 @@ var paths = [
 
 
 var data = $('#buoy-options').serialize();
+
+// Defer loading of graph (TODO: abstract this and update requests logic for reuse)
 $.ajax({
   url: '/buoy_info',
   data: data,
@@ -153,6 +155,7 @@ $.ajax({
   }
 });
 
+// Quick update graph on change (TODO: abstract this and initial requests logic for reuse)
 document.body.addEventListener('change', function(e) {
   if(e.target.hasAttribute('data-buoy-option')) {
     var data = $('#buoy-options').serialize();
