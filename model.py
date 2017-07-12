@@ -2,6 +2,8 @@ from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
+# TODO: Move to separate files if these get out of hand.
+
 Base = declarative_base()
 
 class GeneralData(Base):
