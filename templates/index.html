@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Surf Journal</title>
+  <title>Arthur's Surf Logs</title>
   <link rel="stylesheet" type="text/css" href="/static/style/normalize.css">
   <link rel="stylesheet" type="text/css" href="/static/style/skeleton.css">
   <link rel="stylesheet" type="text/css" href="/static/style/main.css">
 </head>
 <body>
-  <h1>Surf Journal</h1>
-  {% include "form.html" %}
+  <div class="container">
+    <h1>Arthur's Swell Journal</h1>
+    <p>Just a place I come to so I can see what our local piece of ocean is (and has been)
+      doing. Help me make it better. Let me know what would be helpful to see by emailing me at <a href="emailto:arthur@arthurgorka.com">arthur@arthurgorka.com</a>.
+    </p>
+    <p>
+      This is open source, so feel free to fork it or make a PR! <a href="github.com/atribed/surf-local">github.com/atribed/swell-journal</a>. Thanks to <a href="https://github.com/fitnr/buoyant">Buoyant</a> for making talking to NOAA easy.
+    </p>
+    <form name="buoy-options" id="buoy-options" action="buoy_info" method="get">
+      <div class="row">
+        <div class="four columns">
+          <label>Buoys</label>
+          <select id="buoy-chooser" name="buoy_id" data-buoy-option class="u-full-width">
+            <option value="44065" selected>New York Harbor Entrance, NY</option>
+            <option value="44091">Barnegat, NJ</option>
+            <option value="44025">Long Island (South of Islip), NY</option>
+            <option value="44017">Montauk Point, NY</option>
+          </select>
+        </div>
+        <div class="four columns">
+          <label>Start Date</label>
+          <input type="date" name="date_s" id="dateBegin" value="{{ date_begin }}" data-buoy-option class="u-full-width" />
+        </div>
+        <div class="four columns">
+          <label>End Date</label>
+          <input type="date" name="date_e" id="dateEnd" value="{{ date_end }}" data-buoy-option class="u-full-width" />
+        </div>
+      </div>
+    </form>
+    <h5 style="text-align: center">Wave Heights (Current and Past)</h5>
+    <div id="visualisation" width="1000" height="500"></div>
+  </div>
+<script src="/static/js/bundle.js"></script>
 </body>
 </html>
